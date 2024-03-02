@@ -2,7 +2,7 @@
 
 ## Clonando repositório
 
-Para começar seu projeto, primeiro abra a pasta que deseja utilizar, copiei o URL do seu projeto, entre no terminal e digite:
+Para começar seu projeto, primeiro abra a pasta que deseja utilizar, copie o URL do seu projeto, entre no terminal e digite:
 
 ```bash
 git clone https://github.com/4-ANO-COMP/[$TRABALHO]_[$GRUPO].git
