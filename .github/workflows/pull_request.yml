@@ -31,12 +31,7 @@ jobs:
 
           echo "Checking if is initial commit..."
 
-          git log --oneline -n 3 | grep -c "Initial commit"
-
-          numberCommits=$(git log --oneline | wc -l)
-          isInitialCommit=$(git log --oneline -n 3 | grep -c 'Initial commit')
-
-          echo "Hello World!"
+          isInitialCommit=$(git log --oneline -n 3 | grep -o "Initial commit" | wc -l)
 
           echo "Should be 1 if is initial commit: $isInitialCommit"
 
