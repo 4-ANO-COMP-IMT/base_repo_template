@@ -33,7 +33,8 @@ jobs:
 
           git log --oneline -n 3 | grep -c "Initial commit"
 
-          isInitialCommit=$(git log --oneline -n 3 | grep -c "Initial commit")
+          numberCommits=$(git log --oneline | wc -l)
+          isInitialCommit=$(git log --oneline -n 3 | grep -c 'Initial commit')
 
           echo "Hello World!"
 
