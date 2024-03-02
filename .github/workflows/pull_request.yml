@@ -28,10 +28,13 @@ jobs:
           else
             echo "not implemented yet"
           fi
+
+          numberCommits=$(git log --oneline | wc -l)
+          echo "numberCommits=$numberCommits" >> "$GITHUB_OUTPUT"
            
   create-pr-prod:
     needs: check_pr
-    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 }}
+    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.numberCommits > 0}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
