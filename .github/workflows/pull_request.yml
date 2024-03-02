@@ -29,16 +29,17 @@ jobs:
             echo "not implemented yet"
           fi
 
-          # git log and check if (origin/prod) Initial commit or not
-          numberCommits=$(git log --oneline origin/dev | wc -l)
-          echo $numberCommits
-          echo "numberCommits=$numberCommits" >> "$GITHUB_OUTPUT"
+          # get the last commit from dev and check if it the (origin/prod) Initial commit
+
+          isInitialCommit=$(git log --oneline origin/dev | grep -c "Initial commit")
+          echo $isInitialCommit
+          echo "isInitialCommit=$isInitialCommit" >> "$GITHUB_OUTPUT"
 
 
            
   create-pr-prod:
     needs: check_pr
-    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.numberCommits > 1}}
+    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.isInitialCommit != 1}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
