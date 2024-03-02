@@ -29,6 +29,8 @@ jobs:
             echo "not implemented yet"
           fi
 
+          git log --oneline
+
           numberCommits=$(git log --oneline | wc -l)
           echo "numberCommits=$numberCommits" >> "$GITHUB_OUTPUT"
            
