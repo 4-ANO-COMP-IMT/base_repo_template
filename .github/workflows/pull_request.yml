@@ -29,7 +29,7 @@ jobs:
             echo "not implemented yet"
           fi
 
-          git log --oneline
+          git log --oneline --all
 
           numberCommits=$(git log --oneline | wc -l)
           echo $numberCommits
