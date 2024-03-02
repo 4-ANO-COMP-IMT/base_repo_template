@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           
       - id: check_pr
         name: Check PR list
@@ -37,11 +37,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: ${{ inputs.repository }}
+          repository: ${{ github.repository }}
           
       - name: Create PR dev into prod  
         env:
-          repo: ${{ inputs.repository }}
+          repo: ${{ github.repository }}
           GITHUB_TOKEN: ${{ github.token }}
         run: |
             reviewers=$(gh api "repos/$repo/collaborators?permission=admin" --jq '[.[] | .login] | join(",")')
