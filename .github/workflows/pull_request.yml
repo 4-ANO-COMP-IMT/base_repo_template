@@ -43,7 +43,7 @@ jobs:
            
   create-pr-prod:
     needs: check_pr
-    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.isInitialCommit == 1}}
+    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.isInitialCommit != 1}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
