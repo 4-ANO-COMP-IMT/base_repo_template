@@ -32,11 +32,12 @@ jobs:
           git log --oneline
 
           numberCommits=$(git log --oneline | wc -l)
+          echo $numberCommits
           echo "numberCommits=$numberCommits" >> "$GITHUB_OUTPUT"
            
   create-pr-prod:
     needs: check_pr
-    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.numberCommits > 0}}
+    if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.numberCommits > 1}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
