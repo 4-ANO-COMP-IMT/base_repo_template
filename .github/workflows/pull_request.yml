@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       lenPrs: ${{ steps.check_pr.outputs.lenPrs }}
+      isInitialCommit: ${{ steps.check_pr.outputs.isInitialCommit }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
