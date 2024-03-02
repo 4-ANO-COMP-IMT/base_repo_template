@@ -29,9 +29,7 @@ jobs:
             echo "not implemented yet"
           fi
 
-          # get the last commit from dev and check if it the (origin/prod) Initial commit
-
-          isInitialCommit=$(git log --oneline origin/dev | grep -c "Initial commit")
+          isInitialCommit=$(git log --oneline | grep -c "Initial commit")
           echo $isInitialCommit
           echo "isInitialCommit=$isInitialCommit" >> "$GITHUB_OUTPUT"
 
