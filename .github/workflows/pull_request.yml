@@ -46,10 +46,18 @@ jobs:
     if: ${{ github.ref_name == 'dev' && needs.check_pr.outputs.lenPrs == 0 && needs.check_pr.outputs.isInitialCommit != 1}}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v2
         with:
-          repository: ${{ github.repository }}
+          application_id: ${{ vars.SETUP_APP_ID }}
+          application_private_key: ${{ secrets.SETUP_APP_PRIVATE_KEY }}
+          
+      - name: Set Token
+        run: |
+          echo "GITHUB_TOKEN=${{ steps.get_workflow_token.outputs.token }}" >> $GITHUB_ENV
+      - name: Checkout repository
+        uses: actions/checkout@v2
           
       - name: Create PR dev into prod  
         env:
