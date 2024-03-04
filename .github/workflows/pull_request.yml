@@ -52,16 +52,10 @@ jobs:
         with:
           application_id: ${{ vars.SETUP_APP_ID }}
           application_private_key: ${{ secrets.SETUP_APP_PRIVATE_KEY }}
-          
-      - name: Set Token
-        run: |
-          echo "GITHUB_TOKEN=${{ steps.get_workflow_token.outputs.token }}" >> $GITHUB_ENV
-      - name: Checkout repository
-        uses: actions/checkout@v2
-          
+                    
       - name: Create PR dev into prod  
         env:
           repo: ${{ github.repository }}
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         run: |
             gh pr create -B prod -H dev --title "Merge branch dev -> prod - Criado Automatico" --body "Criado Automaticamente" --reviewer 4-ANO-COMP/Admins-repo 
