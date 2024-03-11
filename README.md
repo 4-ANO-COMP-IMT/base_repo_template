@@ -5,14 +5,14 @@
 Para começar seu projeto, primeiro abra a pasta que deseja utilizar, copie o URL do seu projeto, entre no terminal e digite:
 
 ```bash
-git clone https://github.com/4-ANO-COMP/[$TRABALHO]_[$GRUPO].git
+git clone https://github.com/4-ANO-COMP-IMT/[$TRABALHO]_[$GRUPO].git
 ```
 
 ## Iniciando o projeto
 
-Após criar entrar no repostório, criei o arquivo <strong> .gitingore </strong> na pasta raiz do projeto. Adicione as informações baseadas nesse [link](https://github.com/github/gitignore).
+Após criar entrar no repostório, crie o arquivo <strong> .gitignore </strong> na pasta raiz do projeto. Adicione as informações baseadas nesse [link](https://github.com/github/gitignore).
 
-## Branchs
+## Branches
 Todas as alterações devem ser realizadas em branches criadas pelos alunos e mescladas com a <strong>dev</strong> após a aprovação do grupo.<br>
 Para a entrega final, o professor realizará a review e mesclagem com a <strong>prod</strong>. Esta review conterá comentários sobre o projeto e possíveis melhorias.
 <br>
